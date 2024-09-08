@@ -12,14 +12,14 @@ Create a directory. Inside this directory, create a subdirectory named `data` (i
 ```YML
 services:
   webui:
-    image: "ghcr.io/yummiii/sd-webui-forge-docker:latest"
+    image: "ghcr.io/lludlow/sd-webui-forge-docker:latest"
     volumes:
       - "./data:/app/sd-webui"
     ports:
       - "7860:7860"
     environment:
       - "ARGS=--listen --enable-insecure-extension-access" # Insecure extension access is required if you want to install extensions with the listen flag
-      - "UI=forge" # Specifies the UI that will be downloaded, forge for the forge webui or auto for the AUTOMATIC1111 webui
+      - "UPDATE=false" # Should we run a git pull before launching
     deploy:
       resources:
         reservations:
